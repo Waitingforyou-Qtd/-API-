@@ -5,6 +5,7 @@ const express = require('express');
 const cors = require('cors');
 // 创建服务器实例对象
 const app = express();
+const joi = require('@hapi/joi')
 
 app.use(cors());
 // 配置解析表单数据的中间件
@@ -28,5 +29,12 @@ app.use(function (req, res, next) {
 // 导入并注册用户路由模块
 const userRouter = require('./router/user')
 app.use('/api', userRouter)
+// 错误中间件
+app.use(function (err, req, res, next) {
+    // 数据验证失败
+    if (err instanceof joi.ValidationError) return res.cc(err)
+    // 未知错误
+    res.cc(err)
+})
 // 启动服务器
 app.listen(3007, () => console.log('api server running at http://127.0.0.1:3007'));
