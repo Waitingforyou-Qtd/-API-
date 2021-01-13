@@ -3,6 +3,10 @@ const db = require('../db/index')
 /**
  * 在这里定义和用户相关的路由处理函数，供 /router/user.js 模块进行调用
  */
+// 导入 bcryptjs
+const bcrypt = require('bcryptjs')
+// 对用户的密码,进行 bcrype 加密，返回值是加密之后的密码字符串
+userinfo.password = bcrypt.hashSync(userinfo.password, 10)
 
 // 注册用户的处理函数
 exports.regUser = (req, res) => {
