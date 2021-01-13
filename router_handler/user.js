@@ -49,12 +49,12 @@ exports.regUser = (req, res) => {
     // 接收表单数据
     const userinfo = req.body
     // 对表单中的数据进行校验,是否合法!
-    if (!userinfo.username || !userinfo.password) {
-        return res.send({
-            status: 1,
-            message: '用户名或密码不能为空！'
-        })
-    }
+    // if (!userinfo.username || !userinfo.password) {
+    //     return res.send({
+    //         status: 1,
+    //         message: '用户名或密码不能为空！'
+    //     })
+    // }
     // 定义 SQL 语句：
     const sql = `select * from ev_users where username=?`
     db.query(sql, [userinfo.username], function (err, results) {
