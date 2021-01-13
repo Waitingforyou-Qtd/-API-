@@ -8,5 +8,5 @@ const user_handler = require('../router_handler/user')
 router.post('/reguser', user_handler.regUser)
 // 登录
 router.post('/login', user_handler.login)
-
+// 共享
 module.exports = router
