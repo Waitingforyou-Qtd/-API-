@@ -77,5 +77,5 @@ exports.updatePassword = (req, res) => {
 }
 // 更新用户头像的处理函数
 exports.updateAvatar = (req, res) => {
-    res.send('ok')
+    res.send('ok!')
   }
