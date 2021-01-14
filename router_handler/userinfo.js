@@ -71,7 +71,7 @@ exports.updatePassword = (req, res) => {
             if (results.affectedRows !== 1) return res.cc('更新密码失败！')
 
             // 更新密码成功
-            res.cc('更新密码成功！', 0)
+            res.cc('恭喜您,更新密码成功！', 0)
         })
     })
 }
